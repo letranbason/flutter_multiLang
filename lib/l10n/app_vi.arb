@@ -1,4 +1,10 @@
 {
   "title": "Xin chào",
-  "languageToggle": "Chuyển sang tiếng Anh"
+  "languageToggle": "Chuyển sang tiếng Anh",
+
+  "messageCount": "{howMany, plural, =0{Không có tin nhắn nào} =1{1 tin nhắn duy nhất} other{{howMany} tin nhắn}}"
 }
+
+
+
+

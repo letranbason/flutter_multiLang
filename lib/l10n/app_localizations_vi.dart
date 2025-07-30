@@ -13,4 +13,16 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get languageToggle => 'Chuyển sang tiếng Anh';
+
+  @override
+  String messageCount(num howMany) {
+    String _temp0 = intl.Intl.pluralLogic(
+      howMany,
+      locale: localeName,
+      other: '$howMany tin nhắn',
+      one: '1 tin nhắn duy nhất',
+      zero: 'Không có tin nhắn nào',
+    );
+    return '$_temp0';
+  }
 }

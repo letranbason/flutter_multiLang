@@ -109,6 +109,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Switch to Vietnamese'**
   String get languageToggle;
+
+  /// No description provided for @messageCount.
+  ///
+  /// In en, this message translates to:
+  /// **'{howMany, plural, =0{No messages} =1{only 1 message} other{{howMany} messages}}'**
+  String messageCount(num howMany);
 }
 
 class _AppLocalizationsDelegate

@@ -13,4 +13,16 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get languageToggle => 'Switch to Vietnamese';
+
+  @override
+  String messageCount(num howMany) {
+    String _temp0 = intl.Intl.pluralLogic(
+      howMany,
+      locale: localeName,
+      other: '$howMany messages',
+      one: 'only 1 message',
+      zero: 'No messages',
+    );
+    return '$_temp0';
+  }
 }

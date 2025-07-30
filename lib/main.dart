@@ -32,21 +32,60 @@ class _MyAppState extends State<MyApp> {
   }
 }
 
-class MyHomePage extends StatelessWidget {
+class MyHomePage extends StatefulWidget {
   final VoidCallback onToggleLanguage;
 
   const MyHomePage({super.key, required this.onToggleLanguage});
 
   @override
+  State<MyHomePage> createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+  int _messageCount = 0;
+
+  void _incrementMessage() {
+    setState(() {
+      _messageCount++;
+    });
+  }
+
+  void _resetMessage() {
+    setState(() {
+      _messageCount = 0;
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
-    final localizations = AppLocalizations.of(context)!;
 
     return Scaffold(
-      appBar: AppBar(title: Text(localizations.title)),
+      appBar: AppBar(title: Text(AppLocalizations.of(context)!.title)),
       body: Center(
-        child: ElevatedButton(
-          onPressed: onToggleLanguage,
-          child: Text(localizations.languageToggle),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(AppLocalizations.of(context)!.languageToggle),
+            const SizedBox(height: 10),
+            ElevatedButton(
+              onPressed: widget.onToggleLanguage,
+              child: Text(AppLocalizations.of(context)!.languageToggle),
+            ),
+            const SizedBox(height: 30),
+            Text(
+              AppLocalizations.of(context)!.messageCount(_messageCount),
+              style: const TextStyle(fontSize: 20),
+            ),
+            const SizedBox(height: 10),
+            ElevatedButton(
+              onPressed: _incrementMessage,
+              child: const Text("Add Message"),
+            ),
+            ElevatedButton(
+              onPressed: _resetMessage,
+              child: const Text("Reset"),
+            ),
+          ],
         ),
       ),
     );

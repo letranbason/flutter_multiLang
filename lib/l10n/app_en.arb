@@ -1,4 +1,10 @@
 {
   "title": "Hello",
-  "languageToggle": "Switch to Vietnamese"
+  "languageToggle": "Switch to Vietnamese",
+
+  "messageCount": "{howMany, plural, =0{No messages} =1{only 1 message} other{{howMany} messages}}"
 }
+
+
+
+
